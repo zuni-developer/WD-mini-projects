@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Change Frame</title>
+    <script>
+    function changeFrameColor(color){
+      document.getElementById('frame').style.backgroundColor=color;
+    }
+</script>
+</head>
+
+<body>
+    <table border="1" cellpadding="10" style="width: 100%;">
+        <thead>
+            <th>BUTTONS</th>
+            <th>FRAME</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="width: 20%;">
+                <button onclick="changeFrameColor('red')" style="width: 100%;">Red</button>
+                <button onclick="changeFrameColor('green')" style="width: 100%;">Green</button>
+                <button onclick="changeFrameColor('blue')" style="width: 100%;">Blue</button>
+                <button onclick="changeFrameColor('yellow')" style="width: 100%;">Yellow</button>
+                <button onclick="changeFrameColor('orange')" style="width: 100%;">Orange</button>
+                <button onclick="changeFrameColor('pink')" style="width: 100%;">Pink</button>
+                <button onclick="changeFrameColor('purple')" style="width: 100%;">Purple</button>
+                <button onclick="changeFrameColor('cyan')" style="width: 100%;">Cyan</button>
+                <button onclick="changeFrameColor('magenta')" style="width: 100%;">Magenta</button>
+                <button onclick="changeFrameColor('brown')" style="width: 100%;">Brown</button>
+                <button onclick="changeFrameColor('black')" style="width: 100%;">Black</button>
+                <button onclick="changeFrameColor('gray')" style="width: 100%;">Gray</button>
+                <button onclick="changeFrameColor('aquamarine')" style="width: 100%;">Aquamarine</button>
+                <button onclick="changeFrameColor('lavender')" style="width: 100%;">Lavender</button>
+                <button onclick="changeFrameColor('crimson')" style="width: 100%;">Crimson</button>
+                <button onclick="changeFrameColor('lightcoral')" style="width: 100%;">Light coral</button>
+                <button onclick="changeFrameColor('lightgoldenrodyellow')" style="width: 100%;">Light Golden Rod Yellow</button>
+                <button onclick="changeFrameColor('lightseagreen')" style="width: 100%;">Light Sea Green</button>
+                <button onclick="changeFrameColor('lemonchiffon')" style="width: 100%;">Lemon Chiffon</button>
+                <button onclick="changeFrameColor('salmon')" style="width: 100%;">Salmon</button>
+            </td>
+            <td id="frame" style="height: 400px; text-align: center;">
+                Click the buttons on the left to change my background color!
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</body>
+</html>
