@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form in Table</title>
+    <style>
+        table {
+            border: 2px solid black; 
+            padding: 5px; 
+        }
+        tr {
+            border: 1px solid gray;
+        }
+        td {
+            padding: 10px 20px; 
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <marquee style="color: blueviolet;" direction="right" scrollamount="15"><h1>Form converted into Table</h1></marquee>
+    <form><center>
+        <table border="2">
+            <thead>
+                <tr style="background-color: lightsteelblue;">
+                    <th colspan="7">PERSONAL INFORMATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="background-color: lightpink;"><label for="fname">First Name: </label></td>
+                    <td style="background-color: honeydew;" colspan="6"><input type="text" id="fname" name="first_name" placeholder="Enter your first name"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lavender;"><label for="lname">Last Name: </label></td>
+                    <td style="background-color: aliceblue;" colspan="6"><input type="text" id="lname" name="last_name" placeholder="Enter your last name"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: peachpuff;"><label for="cmsid">CMSID: </label></td>
+                    <td style="background-color: mistyrose;" colspan="6"><input type="text" id="cmsid" name="cmsid" placeholder="Enter your CMSID"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightcyan;"><label for="cnic">CNIC: </label></td>
+                    <td style="background-color: seashell;" colspan="6"><input type="text" size="5" id="cnic" name="cnic" > - <input  type="text" size="9"> - <input type="text" size="1"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightgoldenrodyellow;"><label for="email">Email: </label></td>
+                    <td style="background-color: lavenderblush;"><input type="email" id="email" name="email" placeholder="xyz@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: thistle;"><label for="contact">Contact #:</label></td>
+                    <td style="background-color: ivory;"><input type="text" id="contact" name="contact" placeholder="0123-4567890"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightcoral;"><label for="gender_male">Gender:</label></td>
+                    <td style="background-color: aquamarine;"><input type="radio" id="gender_male" name="gender" value="male"> Male</td>
+                    <td style="background-color: lemonchiffon;"><input type="radio" id="gender_female" name="gender" value="female"> Female</td>
+                    <td style="background-color: lightgreen;" colspan="2"><input type="radio" id="gender_other" name="gender" value="other"> Others</td>
+                </tr>
+                <tr>
+                    <td style="background-color: lavender;" rowspan="2"><label for="skills">SKILLS:</label></td>
+                    <td style="background-color: lightyellow;"><input type="checkbox" id="java" name="skills" value="java"> Java</td>
+                    <td style="background-color: lightblue;"><input type="checkbox" id="mobile_app" name="skills" value="mobile_app"> Mobile App Development</td>
+                    <td style="background-color: beige;"><input type="checkbox" id="csharp" name="skills" value="csharp"> C#</td>
+                    <td style="background-color: honeydew;"><input type="checkbox" id="ai" name="skills" value="ai"> AI</td>
+                </tr>
+                <tr>
+                    <td style="background-color: mintcream;"><input type="checkbox" id="python" name="skills" value="python"> Python</td>
+                    <td style="background-color: lightgrey;"><input type="checkbox" id="web_dev" name="skills" value="web_dev"> Web Development</td>
+                    <td style="background-color: linen;"><input type="checkbox" id="cpp" name="skills" value="cpp"> C++</td>
+                    <td style="background-color: ivory;"><input type="checkbox" id="kotlin" name="skills" value="kotlin"> Kotlin</td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightsalmon;"><label for="experience">Experience in Selected Skills:</label></td>
+                    <td style="background-color: papayawhip;"><input type="range" id="experience" name="experience"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightseagreen;"><label for="color">Select your Favorite color:</label></td>
+                    <td style="background-color: lightyellow;"><input type="color" id="color" name="color"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lemonchiffon;"><label for="service_years">Service Years:</label></td>
+                    <td style="background-color: floralwhite;"><input type="number" id="service_years" name="service_years"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightpink;"><label for="picture">Select your picture:</label></td>
+                    <td style="background-color: lightgreen;"><input type="file" id="picture" name="picture"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightcoral;"><label for="cv">Select your CV:</label></td>
+                    <td style="background-color: seashell;"><input type="file" id="cv" name="cv"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightsalmon;"><label for="emotion">Select your emotion:</label></td>
+                    <td style="background-color: lavender;"><select id="emotion" name="emotion">
+                        <option value="happy">Happy</option>
+                        <option value="angry">Angry</option>
+                        <option value="sad">Sad</option>
+                        <option value="anxiety">Anxiety</option>
+                        <option value="depressed">Depressed</option>
+                        <option value="nervous">Nervous</option>
+                        <option value="envy">Envy</option>
+                        <option value="hyper_tension">Hyper Tension</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td style="background-color: cornsilk;" rowspan="2">Location:</td>
+                    <td style="background-color: lavender;"><label for="balochistan">Balochistan</label><input type="radio" id="balochistan" name="location" value="balochistan"></td>
+                    <td style="background-color: aliceblue;"><label for="punjab">Punjab</label><input type="radio" id="punjab" name="location" value="punjab"></td>
+                    <td style="background-color: lightcoral;"><label for="kpk">KPK</label><input type="radio" id="kpk" name="location" value="kpk"></td>
+                    <td style="background-color: peachpuff;"><label for="kashmir">Kashmir</label><input type="radio" id="kashmir" name="location" value="kashmir"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: blanchedalmond;"><label for="multan">Multan</label><input type="radio" id="multan" name="location" value="multan"></td>
+                    <td style="background-color: floralwhite;"><label for="pindi">Pindi</label><input type="radio" id="pindi" name="location" value="pindi"></td>
+                    <td style="background-color: mintcream;"><label for="islamabad">Islamabad</label><input type="radio" id="islamabad" name="location" value="islamabad"></td>  
+                    <td style="background-color: lavender;"><label for="gilgit">Gilgit</label><input type="radio" id="gilgit" name="location" value="gilgit"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: lightyellow;"><label for="feedback">Feedback:</label></td>
+                    <td colspan="6" style="background-color: snow;"><textarea id="feedback" name="feedback" cols="65" rows="8" placeholder="Give your feedback here!"></textarea></td>
+                </tr>
+                <tr>
+                    <td style="background-color: white;"></td>
+                    <td style="background-color: ivory;"><input type="reset" value="RESET"></td>
+                    <td style="background-color: lightseagreen;"><input type="submit" value="SUBMIT"></td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+    </form>
+</body>
+</html>
