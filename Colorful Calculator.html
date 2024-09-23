@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #a052b6, #f5b5e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        div {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+        #result {
+            font-size: 32px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+        }
+        button {
+            width: 70px;
+            height: 70px;
+            font-size: 28px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            background-color: #d6336e; 
+            color: white;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #c0245e; 
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        button:nth-child(4n) {
+            background-color: #7a4b8c; 
+        }
+        button:nth-child(4n):hover {
+            background-color: #6a3e78;
+        }
+        button:nth-last-child(2) {
+            background-color: 	#77D977; 
+            width: 150px; 
+        }
+        button:nth-last-child(2):hover {
+            background-color: #66C266;
+        }
+        button:nth-last-child(1) {
+            background-color: #3498db; 
+            width: 150px; 
+        }
+        button:nth-last-child(1):hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            div {
+                width: 100%;
+                max-width: 350px; 
+            }
+            #result {
+                font-size: 24px; 
+                padding: 10px;
+            }
+            button {
+                width: 60px;
+                height: 60px;
+                font-size: 22px; 
+            }
+            button:nth-last-child(2),
+            button:nth-last-child(1) {
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="result">0</p>
+        <div>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button><br>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button><br>
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button><br>
+            <button onclick="appendOperator('*')">*</button>
+            <button onclick="appendOperator('+')">+</button>
+            <button onclick="appendOperator('-')">-</button><br>
+            <button onclick="calculate()">Calculate</button>
+            <button onclick="clearResult()">Clear</button>
+        </div>
+    </div>
+    <script>
+        let expression="";
+        function appendNumber(num){
+            expression+=num;
+            updateResult();
+        }
+        function appendOperator(op){
+            expression+=" "+op+" ";
+            updateResult();
+        }
+        function calculate(){
+            try{
+                const result=eval(expression);
+                document.getElementById("result").innerText=result;
+                expression=result; 
+            } 
+            catch{
+                document.getElementById("result").innerText="Error";
+                expression="";
+            }
+        }
+        function clearResult(){
+            expression="";
+            updateResult();
+        }
+        function updateResult(){
+            document.getElementById("result").innerText=expression||"0";
+        }
+    </script>
+</body>
+</html>
