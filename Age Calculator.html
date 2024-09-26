@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Teller</title>
+    <style>
+        /* Overall Styling */
+        body {
+            background-color: plum; 
+            color: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        /* Input Form Styling */
+        p {
+            font-size: 22px; /* Bigger font size */
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Input Field Styling */
+        input[type="text"] {
+            padding: 12px;
+            width: 180px;
+            border-radius: 30px;
+            border: 1px solid #dcdde1;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px; /* Bigger font size */
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: #ffffff; /* White input background */
+            color: #2c3e50;
+        }
+
+        input[type="text"]:focus {
+            border-color: #a29bfe; /* Light purple on focus */
+            box-shadow: 0 0 8px rgba(162, 155, 254, 0.6);
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 40px; /* Bigger button size */
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 20px; /* Bigger font size */
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #2ecc71;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Result Text Styling */
+        #result {
+            margin-top: 30px;
+            font-size: 26px; /* Bigger font size */
+            color: #2c3e50;
+            padding: 15px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Error Message Styling */
+        .error {
+            color: #e74c3c;
+            font-size: 18px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Age Teller</h1>
+    <p>Enter the year you were born in: <input type="text" id="year"></p>
+    <p class="error" id="yearError"></p>
+    <p>Enter the month: <input type="text" id="month"></p>
+    <p class="error" id="monthError"></p>
+    <p>Enter the day: <input type="text" id="day"></p>
+    <p class="error" id="dayError"></p>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+    <script>
+        function calculate() {
+            var year = parseInt(document.getElementById("year").value);
+            var month = parseInt(document.getElementById("month").value) - 1; 
+            var day = parseInt(document.getElementById("day").value);
+            var today = new Date();
+
+            // Clear previous errors
+            document.getElementById("yearError").innerHTML = "";
+            document.getElementById("monthError").innerHTML = "";
+            document.getElementById("dayError").innerHTML = "";
+
+            // Validation
+            var valid = true;
+            
+            // Validate year
+            if (isNaN(year) || year > today.getFullYear() || year < 1900) {
+                document.getElementById("yearError").innerHTML = "Please enter a valid year.";
+                valid = false;
+            }
+            
+            // Validate month
+            if (isNaN(month) || month < 0 || month > 11) {
+                document.getElementById("monthError").innerHTML = "Please enter a valid month (1-12).";
+                valid = false;
+            }
+            
+            // Validate day
+            if (isNaN(day) || day < 1 || day > 31) {
+                document.getElementById("dayError").innerHTML = "Please enter a valid day.";
+                valid = false;
+            } else {
+                var maxDay = new Date(year, month + 1, 0).getDate(); // Get the last day of the given month
+                if (day > maxDay) {
+                    document.getElementById("dayError").innerHTML = "Please enter a valid day for this month.";
+                    valid = false;
+                }
+            }
+
+            // Stop if invalid
+            if (!valid) {
+                document.getElementById("result").innerHTML = "";
+                return;
+            }
+
+            // Calculate age if input is valid
+            var birthDate = new Date(year, month, day);
+            var ageYears = today.getFullYear() - birthDate.getFullYear();
+            var ageMonths = today.getMonth() - birthDate.getMonth();
+            var ageDays = today.getDate() - birthDate.getDate();
+            var ageHours = today.getHours() - birthDate.getHours();
+            var ageMinutes = today.getMinutes() - birthDate.getMinutes();
+            var ageSeconds = today.getSeconds() - birthDate.getSeconds();
+
+            if (ageSeconds < 0) {
+                ageSeconds += 60;
+                ageMinutes--;
+            }
+            if (ageMinutes < 0) {
+                ageMinutes += 60;
+                ageHours--;
+            }
+            if (ageHours < 0) {
+                ageHours += 24;
+                ageDays--;
+            }
+            if (ageDays < 0) {
+                var lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                ageDays += lastMonth.getDate();
+                ageMonths--;
+            }
+            if (ageMonths < 0) {
+                ageMonths += 12;
+                ageYears--;
+            }
+
+            document.getElementById("result").innerHTML = 
+                ageYears + " years, " + ageMonths + " months, " + ageDays + " days, " + ageHours + " hours, " + 
+                ageMinutes + " minutes and " + ageSeconds + " seconds.";
+        }
+    </script>
+</body>
+</html>
