@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body{
+            background-image: linear-gradient(to bottom right,#FF9A8B,#FF6A88,#A1FFCE,#9CECFB,#FFA0FD);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            background-size: 100% 100%; 
+            align-items: center;
+            display: flex;
+            justify-content: center;  
+            align-items: center; 
+        }
+        #button{
+            background-color: rgb(86, 184, 216);
+        }
+        #content{
+            background-color: lightcyan;
+            border-radius: 15px;
+            border: black;
+            box-shadow: 0 8px 20px black;
+            text-align: center;
+            justify-content: center; 
+            width: 35%;
+            height: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+    <h1>Calculate square root</h1>
+    <label for="num">Enter your Number:</label><input type="text" id="num"><br>
+    <p>After calculation</p><br>
+    <label for="root">Calculated Square Root:</label><input type="text" id="square-root" value="0"><br>
+    <label for="square">Calculated Square:</label><input type="text" id="square" value="0"><br><br>
+    <button onclick="calculate()" id="button">Calculate</button>
+    </div>
+    <script>
+        function calculate(){
+            var num = document.getElementById("num").value;
+            var square = num * num;
+            var squaroot = Math.sqrt(num);
+            document.getElementById("square-root").value = squaroot;
+            document.getElementById("square").value = square;
+        }
+    </script>
+</body>
+</html>
